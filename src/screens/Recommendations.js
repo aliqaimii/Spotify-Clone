@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {Text, View, StyleSheet, ScrollView, Image} from 'react-native';
+import React, { useEffect, useState } from "react";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import {GetAccessToken, GetRecommendations} from '../services/Api';
-import AlbumItem from '../components/AlbumItem';
+import { GetAccessToken, GetRecommendations } from "../services/Api";
+import AlbumItem from "../components/AlbumItem";
 
-const Recommendations = ({navigation}) => {
+const Recommendations = ({ navigation }) => {
   const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Recommendations = ({navigation}) => {
     if (res?.status === 200) {
       let token = res?.data?.access_token;
       const jsonValue = JSON.stringify(token);
-      AsyncStorage.setItem('AccessToken', jsonValue);
+      AsyncStorage.setItem("AccessToken", jsonValue);
       getRecommendations();
     }
   };
@@ -31,10 +31,10 @@ const Recommendations = ({navigation}) => {
     }
   };
 
-  const onSelectAlbum = item => {
+  const onSelectAlbum = (item) => {
     let data = item?.album;
     let img = item?.album?.images[0]?.url;
-    navigation.navigate('Playlist', {data, imageUri: img});
+    navigation.navigate("Playlist", { data, imageUri: img });
   };
 
   return (
@@ -64,26 +64,26 @@ const Recommendations = ({navigation}) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#141414',
+    justifyContent: "center",
+    backgroundColor: "#141414",
     padding: 10,
   },
   main2: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
     marginTop: 10,
     flex: 1,
   },
   title: {
     fontSize: 28,
-    fontWeight: '600',
-    color: 'white',
+    fontWeight: "600",
+    color: "white",
   },
   tracks: {
     fontSize: 22,
-    fontWeight: '600',
-    color: 'gray',
+    fontWeight: "600",
+    color: "gray",
   },
 });
 

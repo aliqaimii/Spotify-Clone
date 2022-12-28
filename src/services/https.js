@@ -1,8 +1,8 @@
-import axios from 'axios';
-import {Buffer} from 'buffer';
-import qs from 'qs';
+import axios from "axios";
+import { Buffer } from "buffer";
+import qs from "qs";
 
-import {decode, encode} from 'base-64';
+import { decode, encode } from "base-64";
 
 if (!global.btoa) {
   global.btoa = encode;
@@ -17,8 +17,8 @@ export const Get = (token, url, params) => {
     axios
       .get(url, {
         params: params,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        headers: {Authorization: `Bearer ${token}`},
+        "Content-Type": "application/x-www-form-urlencoded",
+        headers: { Authorization: `Bearer ${token}` },
       })
       .then(function (response) {
         resolve(response);
@@ -35,7 +35,7 @@ export const Post = (token, url, body, params) => {
       .post(url, body, {
         params: params,
         headers: {
-          'Content-Type': 'application/form-data',
+          "Content-Type": "application/form-data",
           Authorization: `Bearer ${token}`,
         },
       })
@@ -50,15 +50,15 @@ export const Post = (token, url, body, params) => {
 
 export const PostToken = (url, clientId, clientSecrets) => {
   const data = {
-    grant_type: 'client_credentials',
+    grant_type: "client_credentials",
   };
   return new Promise(function (resolve, reject) {
     axios
       .post(url, qs.stringify(data), {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/x-www-form-urlencoded",
           Authorization:
-            'Basic ' + Buffer.from(clientId + ':' + clientSecrets, 'base64'),
+            "Basic " + Buffer.from(clientId + ":" + clientSecrets, "base64"),
         },
         auth: {
           username: clientId,

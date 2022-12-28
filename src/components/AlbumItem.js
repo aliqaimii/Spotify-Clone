@@ -1,18 +1,12 @@
-import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import React from "react";
+import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
-const AlbumItem = ({onPress, index, item}) => {
+const AlbumItem = ({ onPress, index, item }) => {
   return (
     <TouchableOpacity onPress={onPress} key={index} style={styles.albumCard}>
       <Image
         style={styles.albumImage}
-        source={{uri: item?.album?.images[0]?.url}}
+        source={{ uri: item?.album?.images[0]?.url }}
       />
       <View style={styles.albumDetail}>
         <Text style={styles.albumTitle}>{item?.album?.name}</Text>
@@ -26,7 +20,7 @@ const AlbumItem = ({onPress, index, item}) => {
               <Text key={index} style={styles.artistName}>
                 {item?.album?.artists.length - 1 === index
                   ? item2?.name
-                  : item2?.name + ' , '}
+                  : item2?.name + " , "}
               </Text>
             );
           })}
@@ -39,36 +33,36 @@ const AlbumItem = ({onPress, index, item}) => {
 const styles = StyleSheet.create({
   albumCard: {
     margin: 5,
-    width: '45%',
+    width: "45%",
     marginBottom: 10,
   },
   albumImage: {
-    width: '100%',
+    width: "100%",
     height: 150,
   },
-  albumDetail: {padding: 5},
+  albumDetail: { padding: 5 },
   albumTitle: {
-    fontWeight: '400',
-    color: 'white',
+    fontWeight: "400",
+    color: "white",
     fontSize: 16,
   },
   albumDetail2: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
   },
   albumType: {
-    fontWeight: '400',
-    color: 'gray',
+    fontWeight: "400",
+    color: "gray",
     fontSize: 15,
   },
   albumSepText: {
-    fontWeight: '900',
-    color: 'gray',
+    fontWeight: "900",
+    color: "gray",
   },
   artistName: {
-    fontWeight: '400',
-    color: 'gray',
+    fontWeight: "400",
+    color: "gray",
     fontSize: 15,
   },
 });

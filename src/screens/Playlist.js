@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Text,
   View,
@@ -6,15 +6,15 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-} from 'react-native';
+} from "react-native";
 
-import TrackItem from '../components/TrackItem';
-import {GetAlbumTracks} from '../services/Api';
+import TrackItem from "../components/TrackItem";
+import { GetAlbumTracks } from "../services/Api";
 
-const Playlist = ({route, navigation}) => {
+const Playlist = ({ route, navigation }) => {
   const [albumData, setAlbumData] = useState({});
 
-  const {data, imageUri} = route.params;
+  const { data, imageUri } = route.params;
 
   useEffect(() => {
     getAlbum();
@@ -32,11 +32,11 @@ const Playlist = ({route, navigation}) => {
     navigation.goBack();
   };
 
-  const onTrackPress = id => {
-    navigation.navigate('PlayItem', {trackID: id, imageUri: imageUri});
+  const onTrackPress = (id) => {
+    navigation.navigate("PlayItem", { trackID: id, imageUri: imageUri });
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <TrackItem
       index={item?.id}
       item={item}
@@ -61,7 +61,7 @@ const Playlist = ({route, navigation}) => {
         <View style={styles.artistView}>
           <Text style={styles.artistText}>ARTIST - </Text>
           <Text style={styles.artistName}>
-            {data?.artists[0]?.name ? data?.artists[0]?.name : ''}
+            {data?.artists[0]?.name ? data?.artists[0]?.name : ""}
           </Text>
         </View>
       </View>
@@ -77,24 +77,24 @@ const Playlist = ({route, navigation}) => {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: '#141414',
+    backgroundColor: "#141414",
     padding: 10,
   },
   header: {
     marginTop: 20,
-    alignItems: 'center',
-    borderBottomColor: 'white',
+    alignItems: "center",
+    borderBottomColor: "white",
     borderBottomWidth: 1,
   },
   backBtn: {
-    color: 'white',
+    color: "white",
     marginRight: 10,
-    position: 'absolute',
+    position: "absolute",
     fontSize: 15,
     left: 5,
   },
   backBtnText: {
-    color: 'white',
+    color: "white",
     fontSize: 15,
   },
   img: {
@@ -105,24 +105,24 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   albumName: {
-    color: 'white',
+    color: "white",
     fontSize: 25,
     marginTop: 10,
     marginBottom: 10,
-    fontWeight: '600',
+    fontWeight: "600",
     paddingHorizontal: 20,
   },
   artistView: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 20,
     paddingHorizontal: 20,
   },
   artistText: {
-    color: 'gray',
+    color: "gray",
     fontSize: 18,
   },
   artistName: {
-    color: 'gray',
+    color: "gray",
     fontSize: 18,
   },
 });

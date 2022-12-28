@@ -1,9 +1,9 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Recommendations from '../screens/Recommendations';
-import Playlist from '../screens/Playlist';
-import PlayItem from '../screens/PlayItem';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Recommendations from "../screens/Recommendations";
+import Playlist from "../screens/Playlist";
+import PlayItem from "../screens/PlayItem";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +14,8 @@ const NavigationStack = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Recommendations">
+        initialRouteName="Recommendations"
+      >
         <Stack.Screen name="Recommendations" component={Recommendations} />
         <Stack.Screen name="Playlist" component={Playlist} />
         <Stack.Screen name="PlayItem" component={PlayItem} />

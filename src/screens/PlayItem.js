@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
-import {GetTrack} from '../services/Api';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Image, Text } from "react-native";
+import { GetTrack } from "../services/Api";
 
-const PlayItem = ({route, navigation}) => {
+const PlayItem = ({ route, navigation }) => {
   const [trackData, setTrackData] = useState({});
 
-  const {trackID, imageUri} = route.params;
+  const { trackID, imageUri } = route.params;
 
   useEffect(() => {
     getTrack();
@@ -21,7 +21,7 @@ const PlayItem = ({route, navigation}) => {
   function getDuration(millis) {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
 
   return (
@@ -50,7 +50,7 @@ const PlayItem = ({route, navigation}) => {
                   <Text key={index} style={styles.artistName}>
                     {trackData?.artists.length - 1 === index
                       ? item2?.name
-                      : item2?.name + ' , '}
+                      : item2?.name + " , "}
                   </Text>
                 );
               })}
@@ -69,60 +69,60 @@ const PlayItem = ({route, navigation}) => {
 
 const styles = StyleSheet.create({
   main: {
-    backgroundColor: '#141414',
+    backgroundColor: "#141414",
     flex: 1,
   },
   img: {
-    width: '100%',
-    height: '65%',
+    width: "100%",
+    height: "65%",
   },
   main2: {
     flex: 1,
   },
   detailView1: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+    justifyContent: "space-between",
+    flexDirection: "row",
     padding: 20,
   },
   detailView2: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: 20,
   },
   durationText: {
     fontSize: 20,
-    color: 'gray',
-    fontWeight: '600',
+    color: "gray",
+    fontWeight: "600",
   },
   likeText: {
     fontSize: 20,
-    color: 'gray',
-    fontWeight: '600',
+    color: "gray",
+    fontWeight: "600",
   },
   albumDetail2: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
   },
   albumType: {
-    fontWeight: '400',
-    color: 'gray',
+    fontWeight: "400",
+    color: "gray",
     fontSize: 16,
   },
   albumSepText: {
-    fontWeight: '900',
-    color: 'gray',
+    fontWeight: "900",
+    color: "gray",
     fontSize: 18,
   },
   artistName: {
-    fontWeight: '400',
-    color: 'gray',
+    fontWeight: "400",
+    color: "gray",
     fontSize: 16,
   },
   trackName: {
-    color: 'white',
+    color: "white",
     fontSize: 25,
-    fontWeight: '600',
+    fontWeight: "600",
     marginBottom: 15,
   },
 });

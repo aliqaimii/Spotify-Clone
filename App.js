@@ -1,7 +1,7 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
 
-import NavigationStack from './src/navigation/NavigationStack';
+import NavigationStack from "./src/navigation/NavigationStack";
 
 const App = () => {
   return (

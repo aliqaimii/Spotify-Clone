@@ -1,7 +1,7 @@
-import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React from "react";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 
-const TrackItem = ({imageUri, item, index, onPress}) => {
+const TrackItem = ({ imageUri, item, index, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View key={index} style={styles.main}>
@@ -20,7 +20,7 @@ const TrackItem = ({imageUri, item, index, onPress}) => {
                   <Text key={index} style={styles.artistName}>
                     {item?.artists.length - 1 === index
                       ? item2?.name
-                      : item2?.name + ' , '}
+                      : item2?.name + " , "}
                   </Text>
                 );
               })}
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   main: {
     marginBottom: 5,
     padding: 10,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   img: {
     width: 70,
@@ -43,27 +43,27 @@ const styles = StyleSheet.create({
   },
   detail: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     marginLeft: 20,
   },
   artistView: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   title: {
     fontSize: 22,
-    fontWeight: '600',
-    color: 'white',
+    fontWeight: "600",
+    color: "white",
   },
 
   trackTitle: {
-    fontWeight: '400',
-    color: 'white',
+    fontWeight: "400",
+    color: "white",
     fontSize: 18,
   },
   artistName: {
-    fontWeight: '400',
-    color: 'gray',
+    fontWeight: "400",
+    color: "gray",
     fontSize: 15,
   },
 });
