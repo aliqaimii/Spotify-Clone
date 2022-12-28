@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { GetTrack } from "../services/Api";
 
-const PlayItem = ({ route, navigation }) => {
+const PlayItem = ({ route }) => {
   const [trackData, setTrackData] = useState({});
 
   const { trackID, imageUri } = route.params;
