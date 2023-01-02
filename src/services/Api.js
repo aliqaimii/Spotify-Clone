@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Delete, Get, Post, Put, PostToken } from "./https";
+import { Get, Put, PostToken } from "./https";
 
 const GET_TOKEN_URL = "https://accounts.spotify.com/api/token";
 const CLIENT_ID = "2ce3c99f01334d1280125274b6e32547";
