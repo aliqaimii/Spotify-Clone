@@ -2,15 +2,13 @@ import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const TrackItem = ({ imageUri, item, index, onPress }) => {
+  const source = {
+    uri: imageUri,
+  };
   return (
     <TouchableOpacity onPress={onPress}>
       <View key={index} style={styles.main}>
-        <Image
-          style={styles.img}
-          source={{
-            uri: imageUri,
-          }}
-        />
+        <Image style={styles.img} source={source} />
         <View style={styles.detail}>
           <Text style={styles.trackTitle}>{item?.name}</Text>
           <View style={styles.artistView}>
