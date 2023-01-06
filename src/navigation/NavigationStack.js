@@ -8,12 +8,13 @@ import PlayItem from "../screens/PlayItem";
 const Stack = createNativeStackNavigator();
 
 const NavigationStack = () => {
+  const screenOptions = {
+    headerShown: false,
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
+        screenOptions={screenOptions}
         initialRouteName="Recommendations"
       >
         <Stack.Screen name="Recommendations" component={Recommendations} />
