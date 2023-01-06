@@ -16,6 +16,10 @@ const Playlist = ({ route, navigation }) => {
 
   const { data, imageUri } = route.params;
 
+  const source = {
+    uri: imageUri,
+  };
+
   useEffect(() => {
     getAlbum();
   }, []);
@@ -51,12 +55,7 @@ const Playlist = ({ route, navigation }) => {
         <TouchableOpacity onPress={onBackPress} style={styles.backBtn}>
           <Text style={styles.backBtnText}>Back</Text>
         </TouchableOpacity>
-        <Image
-          style={styles.img}
-          source={{
-            uri: imageUri,
-          }}
-        />
+        <Image style={styles.img} source={source} />
         <Text style={styles.albumName}>{data?.name}</Text>
         <View style={styles.artistView}>
           <Text style={styles.artistText}>ARTIST - </Text>

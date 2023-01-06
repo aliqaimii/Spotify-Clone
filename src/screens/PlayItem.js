@@ -7,6 +7,10 @@ const PlayItem = ({ route }) => {
 
   const { trackID, imageUri } = route.params;
 
+  const source = {
+    uri: imageUri,
+  };
+
   useEffect(() => {
     getTrack();
   }, []);
@@ -26,12 +30,7 @@ const PlayItem = ({ route }) => {
 
   return (
     <View style={styles.main}>
-      <Image
-        style={styles.img}
-        source={{
-          uri: imageUri,
-        }}
-      />
+      <Image style={styles.img} source={source} />
       <View style={styles.main2}>
         <View style={styles.detailView1}>
           <Text style={styles.likeText}>{trackData?.popularity} Likes</Text>
