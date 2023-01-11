@@ -3,8 +3,14 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const AlbumItem = ({ onPress, index, item }) => {
   const source = { uri: item?.album?.images[0]?.url };
+
+  const onItemPress = () => onPress(item);
   return (
-    <TouchableOpacity onPress={onPress} key={index} style={styles.albumCard}>
+    <TouchableOpacity
+      onPress={onItemPress}
+      key={index}
+      style={styles.albumCard}
+    >
       <Image style={styles.albumImage} source={source} />
       <View style={styles.albumDetail}>
         <Text style={styles.albumTitle}>{item?.album?.name}</Text>

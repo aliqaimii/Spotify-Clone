@@ -47,11 +47,7 @@ const Recommendations = ({ navigation }) => {
           {recommendations?.length > 0
             ? recommendations.map((item, index) => {
                 return (
-                  <AlbumItem
-                    onPress={() => onSelectAlbum(item)}
-                    key={index}
-                    item={item}
-                  />
+                  <AlbumItem onPress={onSelectAlbum} key={index} item={item} />
                 );
               })
             : null}
