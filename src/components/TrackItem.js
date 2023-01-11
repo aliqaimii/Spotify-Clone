@@ -5,8 +5,10 @@ const TrackItem = ({ imageUri, item, index, onPress }) => {
   const source = {
     uri: imageUri,
   };
+
+  const onItemPress = () => onPress(item?.id);
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onItemPress}>
       <View key={index} style={styles.main}>
         <Image style={styles.img} source={source} />
         <View style={styles.detail}>

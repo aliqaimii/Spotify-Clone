@@ -45,7 +45,7 @@ const Playlist = ({ route, navigation }) => {
       index={item?.id}
       item={item}
       imageUri={imageUri}
-      onPress={() => onTrackPress(item?.id)}
+      onPress={onTrackPress}
     />
   );
 
