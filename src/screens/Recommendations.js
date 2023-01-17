@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { GetAccessToken, GetRecommendations } from "../services/Api";
-import AlbumItem from "../components/AlbumItem";
+import RecommendationsList from "../components/RecommendationsList";
 
 const Recommendations = ({ navigation }) => {
   const [recommendations, setRecommendations] = useState([]);
@@ -42,17 +42,11 @@ const Recommendations = ({ navigation }) => {
       <Text style={styles.title}>Recommended for you</Text>
       <Text style={styles.tracks}>{recommendations?.length} - Playlists</Text>
 
-      <ScrollView>
-        <View style={styles.main2}>
-          {recommendations?.length > 0
-            ? recommendations.map((item, index) => {
-                return (
-                  <AlbumItem onPress={onSelectAlbum} key={index} item={item} />
-                );
-              })
-            : null}
-        </View>
-      </ScrollView>
+      <RecommendationsList
+        data={recommendations}
+        onSelectAlbum={onSelectAlbum}
+        style={styles.main2}
+      />
     </View>
   );
 };
