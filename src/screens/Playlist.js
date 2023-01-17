@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
 
-import TrackItem from "../components/TrackItem";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+
+import TrackList from "../components/TrackList";
 import { GetAlbumTracks } from "../services/Api";
 
 const Playlist = ({ route, navigation }) => {
@@ -40,15 +34,6 @@ const Playlist = ({ route, navigation }) => {
     navigation.navigate("PlayItem", { trackID: id, imageUri: imageUri });
   };
 
-  const renderItem = ({ item }) => (
-    <TrackItem
-      index={item?.id}
-      item={item}
-      imageUri={imageUri}
-      onPress={onTrackPress}
-    />
-  );
-
   return (
     <View style={styles.main}>
       <View style={styles.header}>
@@ -64,10 +49,12 @@ const Playlist = ({ route, navigation }) => {
           </Text>
         </View>
       </View>
-      <FlatList
-        style={styles.list}
+
+      <TrackList
+        albumImage={imageUri}
         data={albumData?.items}
-        renderItem={renderItem}
+        style={styles.list}
+        onTrackPress={onTrackPress}
       />
     </View>
   );
@@ -99,9 +86,6 @@ const styles = StyleSheet.create({
   img: {
     width: 250,
     height: 230,
-  },
-  list: {
-    paddingTop: 10,
   },
   albumName: {
     color: "white",
