@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
 
+import { Text, View, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { GetAccessToken, GetRecommendations } from "../services/Api";
