@@ -25,7 +25,8 @@ const PlayItem = ({ route }) => {
   function getDuration(millis) {
     var minutes = Math.floor(millis / 60000);
     var seconds = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    let time = minutes + ":" + (seconds < 10 ? "0" : "") + seconds
+    return time;
   }
 
   return (
