@@ -16,11 +16,14 @@ const TrackItem = ({ imageUri, item, index, onPress }) => {
           <View style={styles.artistView}>
             {item?.artists &&
               item?.artists.map((item2, index) => {
+                let artistName =
+                  item?.artists.length - 1 === index
+                    ? item2?.name
+                    : item2?.name + " , ";
+
                 return (
                   <Text key={index} style={styles.artistName}>
-                    {item?.artists.length - 1 === index
-                      ? item2?.name
-                      : item2?.name + " , "}
+                    {artistName}
                   </Text>
                 );
               })}

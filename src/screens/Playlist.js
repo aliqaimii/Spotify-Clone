@@ -20,16 +20,13 @@ const Playlist = ({ route, navigation }) => {
 
   const getAlbum = async () => {
     const res = await GetAlbumTracks(data?.id);
-
     if (res?.status === 200) {
       setAlbumData(res?.data);
     }
   };
-
   const onBackPress = () => {
     navigation.goBack();
   };
-
   const onTrackPress = (id) => {
     navigation.navigate("PlayItem", { trackID: id, imageUri: imageUri });
   };

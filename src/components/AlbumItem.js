@@ -20,11 +20,14 @@ const AlbumItem = ({ onPress, index, item }) => {
           </Text>
           <Text style={styles.albumSepText}> . </Text>
           {item?.album?.artists.map((item2, index) => {
+            let artistName =
+              item?.album?.artists.length - 1 === index
+                ? item2?.name
+                : item2?.name + " , ";
+
             return (
               <Text key={index} style={styles.artistName}>
-                {item?.album?.artists.length - 1 === index
-                  ? item2?.name
-                  : item2?.name + " , "}
+                {artistName}
               </Text>
             );
           })}
